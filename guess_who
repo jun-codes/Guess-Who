@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Guess Who online game">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="GuessWho.css">
+    <title>Guess Who?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            background-color:#F9F7F4;
+        }
+        .content {
+            text-align: center;
+            margin-right: 20px;
+        }
+        .image-button {
+            display: inline-block;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+        .image-button img {
+            transition: transform 0.3s ease;
+        }
+        .image-button img:hover {
+            transform: scale(1.05);
+        }
+        .message-history {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 300px; /* Increased width */
+            height: 300px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            margin-top: 200px;
+        }
+        .message-history h2 {
+            margin: 0 0 10px;
+        }
+        .message-input {
+            margin-top: 10px;
+            display: flex;
+        }
+        .message-input input {
+            flex-grow: 1;
+            padding: 5px;
+            width: 250px; /* Increased width */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .message-input button {
+            padding: 5px 10px;
+            border: none;
+            background-color: #28a745; /* Green color */
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-left: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .message-input button:hover {
+            background-color: #218838;
+        }
+        .Names {
+            font-family: monospace;
+            font-weight: 500;
+            font-size: 150%;
+            text-align: center;
+            color: #272727;
+        }
+        .Title {
+            color: #272727;
+            font-size: 80px;
+            font-family: 'Franklin Gothic Medium';
+            text-align: center;
+        }
+        .clickableImage {
+            display: inline-block;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: transform 0.3s ease; /* Ensure transition applies to the whole image */
+        }
+        .clickableImage:hover {
+            transform: scale(1.05); /* Slightly increase size on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1 class="Title"><b>GUESS WHO?</b></h1>
+        <hr />
+        <table>
+            <tbody>
+                <tr>
+                    <td><img class="clickableImage" width="139" height="170" src="codepics/HarryPotter.jpg" alt="HARRY POTTER" /></td>
+                    <td><img class="clickableImage" width="139" height="170" src="codepics/RonaldWeasley.jpg" alt="RONALD WEASLEY" /></td>
+                    <td><img class="clickableImage" width="139" height="170" src="codepics/HermoineGranger.jpg" alt="HERMOINE GRANGER" /></td>
+                    <td><img class="clickableImage" width="139" height="170" src="codepics/FredWeasley.jpg" alt="FRED WEASLEY" /></td>
+                    <td><img class="clickableImage" width="139" height="170" src="codepics/GeorgeWeasley.jpg" alt="GEORGE WEASLEY" /></td>
+                </tr>
+                <tr class="Names">
+                    <td>HARRY</td>
+                    <td>RONALD</td>
+                    <td>HERMOINE</td>
+                    <td>FRED</td>
+                    <td>GEORGE</td>
+                </tr>
+                <tr>
+                    <td><img class="clickableImage" width="139" height="170" src="codepics/Mcgonagall.jpg" alt="PROF MCGONAGALL" /></td>
+                    <td><img class="clickableImage" width="139" height="170" src="codepics/Dumbledore.jpg" alt="PROF DUMBLEDORE" /></td>
+                    <td><img class="clickableImage" width="139" height="170" src="codepics/Hagrid.jpg" alt="HAGRID" /></td>
+                    <td><img class="clickableImage" width="139" height="170" src="codepics/Moody.jpg" alt="MAD-EYE MOODY" /></td>
+                    <td><img class="clickableImage" width="139" height="170" src="codepics/Lupin.jpg" alt="LUPIN" /></td>
+                </tr>
+                <tr class="Names">
+                    <td>MCGONAGALL</td>
+                    <td>DUMBLEDORE</td>
+                    <td>HAGRID</td>
+                    <td>MOODY</td>
+                    <td>LUPIN</td>
+                </tr>
+                <tr>
+                    <td><img class="clickableImage" width="139" height="170" src="codepics/Ginny.jpg" alt="GINNY WEASLEY" /></td>
+                    <td><img class="clickableImage" width="139" height="170" src="codepics/Snape.jpg" alt="PROF SNAPE" /></td>
+                    <td><img class="clickableImage" width="139" height="170" src="codepics/Luna.jpg" alt="LUNA LOVEGOOD" /></td>
+                    <td><img class="clickableImage" width="139" height="170" src="codepics/Neville.jpg" alt="NEVILLE LONGBOTTOM" /></td>
+                    <td><img class="clickableImage" width="139" height="170" src="codepics/Umbridge.jpg" alt="UMBRIDGE" /></td>
+                </tr>
+                <tr class="Names">
+                    <td>GINNY</td>
+                    <td>SNAPE</td>
+                    <td>LUNA</td>
+                    <td>NEVILLE</td>
+                    <td>UMBRIDGE</td>
+                </tr>
+                <tr>
+                    <td><img class="clickableImage" width="139" height="170" src="codepics/Draco.jpg" alt="DRACO" /></td>
+                    <td><img class="clickableImage" width="139" height="170" src="codepics/Dobby.jpg" alt="DOBBY" /></td>
+                    <td><img class="clickableImage" width="139" height="170" src="codepics/Sirius.jpg" alt="SIRIUS" /></td>
+                    <td><img class="clickableImage" width="139" height="170" src="codepics/Voldemort.jpg" alt="VOLDEMORT" /></td>
+                    <td><img class="clickableImage" width="139" height="170" src="codepics/Bellatrix.jpg" alt="BELLATRIX" /></td>
+                </tr>
+                <tr class="Names">
+                    <td>DRACO</td>
+                    <td>DOBBY</td>
+                    <td>SIRIUS</td>
+                    <td>VOLDEMORT</td>
+                    <td>BELLATRIX</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="message-history">
+        <h2>Messages</h2>
+        <div id="history"></div>
+        <div class="message-input">
+            <input type="text" id="message" placeholder="Type your message" onkeypress="checkEnter(event)">
+            <button onclick="addMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Define the shared image source (the image all clicked images will toggle to)
+            const sharedImageSrc = 'QuestionImg.jpg';
+
+            // Get all images by their class name
+            const images = document.querySelectorAll('.clickableImage');
+
+            // Add click event listener to each image
+            images.forEach(function (image) {
+                image.addEventListener('click', function () {
+                    // Toggle the clicked image to the shared image source
+                    image.src = sharedImageSrc;
+                });
+            });
+        });
+
+        function addMessage() {
+            var messageInput = document.getElementById('message');
+            var message = messageInput.value.trim();
+            if (message) {
+                var history = document.getElementById('history');
+                var newMessage = document.createElement('p');
+                newMessage.textContent = message;
+                history.appendChild(newMessage);
+                messageInput.value = '';
+                history.scrollTop = history.scrollHeight; // Scroll to the bottom
+            }
+        }
+
+        function checkEnter(event) {
+            if (event.key === 'Enter') {
+                addMessage();
+            }
+        }
+    </script>
+</body>
+</html>
